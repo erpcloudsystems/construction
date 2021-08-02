@@ -8,6 +8,7 @@
  "field_order": [
   "clearance_details_section",
   "naming_series",
+  "company",
   "clearance_name",
   "clearance_no",
   "column_break_6",
@@ -18,6 +19,7 @@
   "total_current_amount",
   "advanced_payment_insurance_amount",
   "initial_delivery_payment_insurance_amount",
+  "total_paid_amount",
   "sales_order_details_section",
   "sales_order",
   "customer",
@@ -41,7 +43,12 @@
   "sales_taxes_and_charges_template",
   "purchase_taxes_and_charges_template",
   "taxes",
-  "total_taxes_amount"
+  "total_taxes_amount",
+  "deduction_section",
+  "deductions_table",
+  "total_deduction_amount",
+  "notes_section",
+  "notes"
  ],
  "fields": [
   {
@@ -113,6 +120,7 @@
   {
    "fieldname": "sales_order",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Sales Order",
    "mandatory_depends_on": "eval:doc.clearance_type == \"Outgoing\"",
    "options": "Sales Order"
@@ -121,6 +129,7 @@
    "fetch_from": "sales_order.customer",
    "fieldname": "customer",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Customer",
    "options": "Customer",
    "read_only": 1
@@ -152,6 +161,7 @@
   {
    "fieldname": "purchase_order",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Purchase Order",
    "mandatory_depends_on": "eval:doc.clearance_type == \"Incoming\"",
    "options": "Purchase Order"
@@ -160,6 +170,7 @@
    "fetch_from": "purchase_order.supplier",
    "fieldname": "supplier",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Supplier",
    "options": "Supplier",
    "read_only": 1
@@ -237,6 +248,7 @@
    "fieldname": "total_current_amount",
    "fieldtype": "Currency",
    "label": "Total Current Amount",
+   "no_copy": 1,
    "read_only": 1
   },
   {
@@ -266,25 +278,76 @@
    "fieldname": "advanced_payment_insurance_amount",
    "fieldtype": "Currency",
    "label": "Advanced Payment Insurance Amount",
+   "no_copy": 1,
    "read_only": 1
   },
   {
    "fieldname": "initial_delivery_payment_insurance_amount",
    "fieldtype": "Currency",
    "label": "Initial Delivery Payment Insurance Amount",
+   "no_copy": 1,
    "read_only": 1
   },
   {
    "fieldname": "total_taxes_amount",
    "fieldtype": "Currency",
    "label": "Total Amount After Tax",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_paid_amount",
+   "fieldtype": "Currency",
+   "label": "Total Paid Amount",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "deduction_section",
+   "fieldtype": "Section Break",
+   "label": "Deduction"
+  },
+  {
+   "fieldname": "deductions_table",
+   "fieldtype": "Table",
+   "label": "Deductions Table",
+   "options": "Payment Entry Deduction"
+  },
+  {
+   "fieldname": "total_deduction_amount",
+   "fieldtype": "Currency",
+   "label": "Total Deduction Amount",
+   "no_copy": 1,
    "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2021-07-05 13:44:08.927941",
+ "links": [
+  {
+   "link_doctype": "Journal Entry",
+   "link_fieldname": "clearance"
+  }
+ ],
+ "modified": "2021-07-15 20:41:22.108975",
  "modified_by": "Administrator",
  "module": "Construction",
  "name": "Clearances",
