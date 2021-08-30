@@ -344,10 +344,10 @@
  "links": [
   {
    "link_doctype": "Journal Entry",
-   "link_fieldname": "clearance"
+   "link_fieldname": "reference_link"
   }
  ],
- "modified": "2021-08-30 13:03:43.240508",
+ "modified": "2021-08-30 14:53:43.869210",
  "modified_by": "Administrator",
  "module": "Construction",
  "name": "Clearances",

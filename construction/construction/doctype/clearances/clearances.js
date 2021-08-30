@@ -57,19 +57,6 @@ frappe.ui.form.on('Clearances',  'clearance_type',  function(frm) {
     }
 });
 
-
-//frappe.ui.form.on('Clearances', {
-//   clearance_type: function(frm) {
-//        frappe.call({
-//           doc: frm.doc,
-//            method: "clear_fields",
-//                callback: function(r) {
-//                //cur_frm.save();
-//                }
-//        });
-//	}
-//})
-
 frappe.ui.form.on('Clearances',  'sales_order',  function(frm) {
     cur_frm.clear_table("items");
     cur_frm.clear_table("taxes");
@@ -83,7 +70,6 @@ frappe.ui.form.on('Clearances', {
                   method: "get_sales_items",
                     callback: function(r) {
                     refresh_field("items");
-                    //cur_frm.save();
                     }
             });
         }
@@ -117,7 +103,6 @@ frappe.ui.form.on('Clearances', {
                 method: "get_purchase_items",
                     callback: function(r) {
                     refresh_field("items");
-                    //cur_frm.save();
                     }
             });
         }
