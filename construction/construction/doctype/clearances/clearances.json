@@ -341,8 +341,13 @@
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2021-08-24 16:13:17.778317",
+ "links": [
+  {
+   "link_doctype": "Journal Entry",
+   "link_fieldname": "clearance"
+  }
+ ],
+ "modified": "2021-08-30 13:03:43.240508",
  "modified_by": "Administrator",
  "module": "Construction",
  "name": "Clearances",
