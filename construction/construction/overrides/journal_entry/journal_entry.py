@@ -24,3 +24,9 @@ def update_clearance_on_cancel(doc, method=None):
 		current = frappe.db.get_value("Clearances", doc.reference_link, "total_paid_amount")
 		new = current - doc.total_debit
 		frappe.db.set_value('Clearances', doc.reference_link, 'total_paid_amount', new)
+
+@frappe.whitelist()
+def cancel_clearance_on_je_cancel(doc, method=None):
+	if doc.reference_doctype == "Clearances" and not doc.clearance_payment:
+		clearance = frappe.get_doc('Clearances', doc.reference_link)
+		clearance.cancel()

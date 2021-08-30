@@ -14,7 +14,8 @@ app_license = "MIT"
 doc_events = {
 "Journal Entry": {
 	"on_submit": "construction.construction.overrides.journal_entry.journal_entry.update_clearance_on_submit",
-	"on_cancel": "construction.construction.overrides.journal_entry.journal_entry.update_clearance_on_cancel"
+	"on_cancel": "construction.construction.overrides.journal_entry.journal_entry.update_clearance_on_cancel",
+	"on_cancel": "construction.construction.overrides.journal_entry.journal_entry.cancel_clearance_on_je_cancel",
 }
 }
 
