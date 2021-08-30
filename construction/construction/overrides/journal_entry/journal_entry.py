@@ -27,6 +27,6 @@ def update_clearance_on_cancel(doc, method=None):
 
 @frappe.whitelist()
 def cancel_clearance_on_je_cancel(doc, method=None):
+	clearance = frappe.get_doc('Clearances', doc.reference_link)
 	if doc.reference_doctype == "Clearances" and not doc.clearance_payment:
-		clearance = frappe.get_doc('Clearances', doc.reference_link)
 		clearance.cancel()
